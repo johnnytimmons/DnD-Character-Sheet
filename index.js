@@ -12,6 +12,14 @@ function rollDice() {
   }
 }
 
+function positiveClamp(number) {
+  if (number < 0) {
+    return 0;
+  } else {
+    return number;
+  }
+}
+
 const humanTraits = [
   "Ability Score Increase: +1 to all ability scores",
   "Languages: Common",
@@ -114,9 +122,13 @@ document.addEventListener("DOMContentLoaded", function () {
   dexterityBtn.addEventListener("click", function () {
     const total = rollDice();
     dexterity.innerText = total;
-    initiative.innerText = Math.floor((total - 10) / 2);
-    armorClass.innerText = Math.max(Math.floor((total - 10) / 2) + 10, 10);
-    walkingSpeed.innerText = Math.floor((total - 10) * 5) + 30 + " ft.";
+    initiative.innerText = Math.floor(positiveClamp(total - 10) / 2);
+    armorClass.innerText = Math.max(
+      Math.floor(positiveClamp(total - 10) / 2) + 10,
+      10
+    );
+    walkingSpeed.innerText =
+      Math.floor(positiveClamp(total - 10) * 5) + 30 + " ft.";
     dexterityMod.innerText = Math.floor((total - 10) / 2);
   });
 
@@ -174,122 +186,57 @@ document.addEventListener("DOMContentLoaded", function () {
   //half-elf
   const halfElfInput = document.getElementById("half-elf");
 
+  /* Race Traits stuff
+
+const raceInput = document.getElementById("race");
+const traits = document.getElementById("traits");
+*/
   //Click radio button to populate traits-------------------------------------------------------
 
-  humanInput.addEventListener("click", function () {
-    const traitsList = document.getElementById("traitsList");
-    traitsList.innerHTML = "";
-    for (let i = 0; i < humanTraits.length; i++) {
-      // Create a new list item
-      const li = document.createElement("li");
-      // Set the text content of the list item to the current trait
-      li.textContent = humanTraits[i];
-      // Append the list item to the traits list
-      traitsList.appendChild(li);
-    }
-  });
+  function characterClick(raceInput, traits) {
+    raceInput.addEventListener("click", function () {
+      const traitsList = document.getElementById("traitsList");
+      traitsList.innerHTML = "";
+      for (let i = 0; i < traits.length; i++) {
+        // Create a new list item
+        const li = document.createElement("li");
+        // Set the text content of the list item to the current trait
+        li.textContent = traits[i];
+        // Append the list item to the traits list
+        traitsList.appendChild(li);
+      }
+    });
+  }
 
-  elfInput.addEventListener("click", function () {
-    const traitsList = document.getElementById("traitsList");
-    traitsList.innerHTML = "";
-    for (let i = 0; i < elfTraits.length; i++) {
-      // Create a new list item
-      const li = document.createElement("li");
-      // Set the text content of the list item to the current trait
-      li.textContent = elfTraits[i];
-      // Append the list item to the traits list
-      traitsList.appendChild(li);
-    }
-  });
-
-  dwarfInput.addEventListener("click", function () {
-    const traitsList = document.getElementById("traitsList");
-    traitsList.innerHTML = "";
-    for (let i = 0; i < dwarfTraits.length; i++) {
-      // Create a new list item
-      const li = document.createElement("li");
-      // Set the text content of the list item to the current trait
-      li.textContent = dwarfTraits[i];
-      // Append the list item to the traits list
-      traitsList.appendChild(li);
-    }
-  });
-
-  dragonbornInput.addEventListener("click", function () {
-    const traitsList = document.getElementById("traitsList");
-    traitsList.innerHTML = "";
-    for (let i = 0; i < dragonbornTraits.length; i++) {
-      // Create a new list item
-      const li = document.createElement("li");
-      // Set the text content of the list item to the current trait
-      li.textContent = dragonbornTraits[i];
-      // Append the list item to the traits list
-      traitsList.appendChild(li);
-    }
-  });
-
-  halflingInput.addEventListener("click", function () {
-    const traitsList = document.getElementById("traitsList");
-    traitsList.innerHTML = "";
-    for (let i = 0; i < halflingTraits.length; i++) {
-      // Create a new list item
-      const li = document.createElement("li");
-      // Set the text content of the list item to the current trait
-      li.textContent = halflingTraits[i];
-      // Append the list item to the traits list
-      traitsList.appendChild(li);
-    }
-  });
-
-  gnomeInput.addEventListener("click", function () {
-    const traitsList = document.getElementById("traitsList");
-    traitsList.innerHTML = "";
-    for (let i = 0; i < gnomeTraits.length; i++) {
-      // Create a new list item
-      const li = document.createElement("li");
-      // Set the text content of the list item to the current trait
-      li.textContent = gnomeTraits[i];
-      // Append the list item to the traits list
-      traitsList.appendChild(li);
-    }
-  });
-
-  tieflingInput.addEventListener("click", function () {
-    const traitsList = document.getElementById("traitsList");
-    traitsList.innerHTML = "";
-    for (let i = 0; i < tieflingTraits.length; i++) {
-      // Create a new list item
-      const li = document.createElement("li");
-      // Set the text content of the list item to the current trait
-      li.textContent = tieflingTraits[i];
-      // Append the list item to the traits list
-      traitsList.appendChild(li);
-    }
-  });
-
-  halfOrcInput.addEventListener("click", function () {
-    const traitsList = document.getElementById("traitsList");
-    traitsList.innerHTML = "";
-    for (let i = 0; i < halfOrcTraits.length; i++) {
-      // Create a new list item
-      const li = document.createElement("li");
-      // Set the text content of the list item to the current trait
-      li.textContent = halfOrcTraits[i];
-      // Append the list item to the traits list
-      traitsList.appendChild(li);
-    }
-  });
-
-  halfElfInput.addEventListener("click", function () {
-    const traitsList = document.getElementById("traitsList");
-    traitsList.innerHTML = "";
-    for (let i = 0; i < halfElfTraits.length; i++) {
-      // Create a new list item
-      const li = document.createElement("li");
-      // Set the text content of the list item to the current trait
-      li.textContent = halfElfTraits[i];
-      // Append the list item to the traits list
-      traitsList.appendChild(li);
-    }
-  });
+  characterClick(elfInput, elfTraits);
+  characterClick(dwarfInput, dwarfTraits);
+  characterClick(tieflingInput, tieflingTraits);
+  characterClick(halfOrcInput, halfOrcTraits);
+  characterClick(halfElfInput, halfElfTraits);
+  characterClick(halflingInput, halflingTraits);
+  characterClick(dragonbornInput, dragonbornTraits);
+  characterClick(humanInput, humanTraits);
+  characterClick(gnomeInput, gnomeTraits);
 });
+
+/*
+
+const characterClass = [
+  {
+    name: "Human",
+    traits: [
+      "lkjlkj",
+      "jlkjlk,"
+    ],
+    id: "human",
+  },
+  {
+    name: "Elf"
+  },
+]
+
+  for (let i = 0; i < characterClass.length; i++) {
+    const input = document.getElementById(characterClass[i].id)
+    characterClick(input, characterClass[i].traits)
+  }
+ */

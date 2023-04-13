@@ -21,19 +21,24 @@
      
       <!--Character Input-->
       <!--Name section-->
+      <div class="details">
       
-      <form action="noaction" method="get">
-        <div class="details">
-        <h2 class="section-title roll-stats">Character</h2>
         <div class="name">
+        <h2 class="section-title roll-stats">Character</h2>
+        <form action="noaction" method="get"></form>
           <label for="name"></label>
           <input required class="input-name" type="text" id="name" name="name" placeholder="Character Name" />
+        </form>
         </div>
+      
 
 
         <!--Class section-->
-        <div action=""details>
+    
+        
+          <div class='name'>
         <h2 class="sel-sel-black-panther" for="class">Class</h2>
+        <form action="noaction" method="get"></form>
         <select class="select-menu" id="class" name="class">
           <option value="blood-hunter">Blood Hunter</option>
           <option value="barbarian">Barbarian</option>
@@ -49,12 +54,14 @@
           <option value="warlock">Warlock</option>
           <option value="wizard">Wizard</option>
           <option value="swish">Swish</option>
+        </form>
         </select>
+        
         </div>
-        <br />
-        <br />
       </div>
-      </form>
+       
+      
+      
 
 
         <!--Race section-->
@@ -187,9 +194,9 @@
     <div class="statmod__display stat" id="walkingSpeed" value=""></div>
   </div>
 </div>
-  <div>
+  <div class="stats-b">
   <h2 class="aiws">Traits</h2>
-  <div class="radio-inputs">
+  <div id="traits">
     <ul id="traitsList">
     </div>
 
@@ -199,26 +206,26 @@
 
 
 
-    <form action="noaction" method="get">
+    <form class="inventoryList" action="noaction" method="get">
       <h2 class="section-title roll-stats" id="inventory">Inventory</h2>
+      <label for="weapons">Weapons</label>
       <div class="inventory-list">
-        <label for="weapons">Weapons</label>
-        <input class="input-inventory" type="text" id="weapons" placeholder="Weapons" />
+                <input class="input-inventory" type="text" id="weapons" placeholder="Weapons" />
         <input class="input-inventory" type="text" id="weapons" placeholder="Weapons" />
         <input class="input-inventory" type="text" id="weapons" placeholder="Weapons" />
       </div>
 
-      
+      <label for="weapons">Armor</label>
         <div class="inventory-list">
-          <label for="weapons">Armor</label>
-          <input class="input-inventory" type="text" id="armor" placeholder="armor" />
+                    <input class="input-inventory" type="text" id="armor" placeholder="Armor" />
           <input class="input-inventory" type="text" id="armor" placeholder="armor" />
           <input class="input-inventory" type="text" id="armor" placeholder="armor" />
         </div>
 
         
-          <div class="inventory-list">
-            <label for="weapons">Inventory</label>
+          
+          <label for="weapons">Inventory</label>
+            <div class="inventory-list"></div>
             <input class="input-inventory" type="text" id="items" placeholder="Items" />
             <input class="input-inventory" type="text" id="items" placeholder="Items" />
             <input class="input-inventory" type="text" id="items" placeholder="Items" />
@@ -231,4 +238,5 @@
     </form>
   </div> 
 </body>
+</div>
 </html>
