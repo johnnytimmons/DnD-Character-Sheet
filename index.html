@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="index.js"></script>
+  <link rel="stylesheet" href="reset.css" />
+  <link rel="stylesheet" href="style.css" />
+  <title>D&D 5e Character Creator</title>
+  <link href='https://fonts.googleapis.com/css?family=DM Serif Display' rel='stylesheet'>
+</head>
+
+<!--h1title-->
+
+<body>
+  <div class="container"> 
+    <header>
+      <h1 class="title">D&D 5e Character Creator</h1>
+    </header>
+
+    <div class="row">
+     
+      <!--Character Input-->
+      <!--Name section-->
+      
+      <form action="noaction" method="get">
+        <div class="details">
+        <h2 class="section-title roll-stats">Character</h2>
+        <div class="name">
+          <label for="name"></label>
+          <input required class="input-name" type="text" id="name" name="name" placeholder="Character Name" />
+        </div>
+
+
+        <!--Class section-->
+        <div action=""details>
+        <h2 class="sel-sel-black-panther" for="class">Class</h2>
+        <select class="select-menu" id="class" name="class">
+          <option value="blood-hunter">Blood Hunter</option>
+          <option value="barbarian">Barbarian</option>
+          <option value="bard">Bard</option>
+          <option value="cleric">Cleric</option>
+          <option value="druid">Druid</option>
+          <option value="fighter">Fighter</option>
+          <option value="monk">Monk</option>
+          <option value="paladin">Paladin</option>
+          <option value="ranger">Ranger</option>
+          <option value="rogue">Rogue</option>
+          <option value="sorcerer">Sorcerer</option>
+          <option value="warlock">Warlock</option>
+          <option value="wizard">Wizard</option>
+        </select>
+        </div>
+        <br />
+        <br />
+      </div>
+      </form>
+
+
+        <!--Race section-->
+        <div>
+        <h2 class="section-title races">Race</h2>
+        <div class="radio-inputs" id="race">
+          <div class="radio-input" id=>
+            <input type="radio" id="human" name="race" value="Human" />
+            <label class="labelRace" for="human">Human</label>
+          </div>
+          <div class="radio-input">
+            <input type="radio" id="dwarf" name="race" value="Dwarf" />
+            <label class="labelRace" for="dwarf">Dwarf</label>
+          </div>
+          <div class="radio-input">
+            <input type="radio" id="dragonborn" name="race" value="Dragonborn" />
+            <label class="labelRace" for="dragonborn">Dragonborn</label>
+          </div>
+          <div class="radio-input">
+            <input type="radio" id="elf" name="race" value="Elf" />
+            <label class="labelRace" id='elf' for="elf">Elf</label>
+          </div>
+          <div class="radio-input">
+            <input type="radio" id="halfling" name="race" value="Halfling" />
+            <label class="labelRace" for="halfling">Halfling</label>
+          </div>
+          <div class="radio-input">
+            <input type="radio" id="gnome" name="race" value="Gnome" />
+            <label class="labelRace" for="gnome">Gnome</label>
+          </div>
+          <div class="radio-input">
+            <input type="radio" id="tiefling" name="race" value="Tiefling" />
+            <label class="labelRace" for="tiefling">Tiefling</label>
+          </div>
+          <div class="radio-input">
+            <input type="radio" id="half-orc" name="race" value="Half-Orc" />
+            <label class="labelRace" for="half-orc">Half-Orc</label>
+          </div>
+          <div class="radio-input">
+            <input type="radio" id="half-elf" name="race" value="Half-Elf" />
+            <label class="labelRace" for="half-elf">Half-Elf</label>
+          </div>
+        </div>
+        
+      <!--stats section-->
+
+      <div class="stats">
+        <h2 class="section-title roll-stats">Stats</h2>
+        <!--display stats-->
+
+        <div class="statmod">
+          <div class="statmod__content">
+<p>Attribute</p>
+<p>Modifier</p>
+
+          </div>
+          <div class="statmod__content">
+            <label class="statmod__heading">Strength</label>
+                        <div class="statmod__display stat_right" id="strength"></div>
+                        <div class="statmod__display stat_right" id="strengthMod"></div>
+            <button type="button" class="statmod__button roll-button"
+              id="strengthBtn">Roll</button>
+          </div>
+        </div>
+        <div class="statmod">
+          
+          <div class="statmod__content">
+            <label class="statmod__heading">Dexterity</label>
+            <div class="statmod__display stat_right" id="dexterity"></div>
+            <div class="statmod__display stat_right" id="dexterityMod"></div>
+            <button type="button" class="statmod__button roll-button"
+              id="dexterityBtn">Roll</button>
+          </div>
+        </div>
+        <div class="statmod">
+        
+          <div class="statmod__content">
+            <label class="statmod__heading">Constitution</label>
+            <div class="statmod__display stat_right" id="constitution"></div>
+            <div class="statmod__display stat_right" id="constitutionMod"></div>
+            <button type="button" class="statmod__button roll-button"
+              id="constitutionBtn">Roll</button>
+          </div>
+        </div>
+        <div class="statmod">
+         
+          <div class="statmod__content">
+            <label class="statmod__heading">Intelligence</label>
+            <div class="statmod__display stat_right" id="intelligence"></div>
+            <div class="statmod__display stat_right" id="intelligenceMod"></div>
+            <button type="button" class="statmod__button roll-button"
+              id="intelligenceBtn">Roll</button>
+          </div>
+        </div>
+        <div class="statmod">
+          
+          <div class="statmod__content">
+            <label class="statmod__heading">Wisdom</label>
+            <div class="statmod__display stat_right" id="wisdom"></div>
+            <div class="statmod__display stat_right" id="wisdomMod"></div>
+            <button type="button" class="statmod__button roll-button"
+              id="wisdomBtn">Roll</button>
+          </div>
+      </div>
+      <div class="statmod">
+        
+        <div class="statmod__content">
+          <label class="statmod__heading">Charisma</label>
+          <div class="statmod__display stat_right" id="charisma"></div>
+          <div class="statmod__display stat_right" id="charismaMod"></div>
+          <button type="button" class="statmod__button roll-button"
+            id="charismaBtn">Roll</button>
+        </div>
+      </div>
+    </div>
+
+ <!--AC, Init, Walk-->
+ <div class="stats-b">
+
+  <h2 class="aiws">Armor Class</h2>
+  <div class="statmod__content-2">
+    <div class="statmod__display stat" id="armorClass"></div>
+  </div>
+  <h2 class="aiws">Initiative</h2>
+  <div class="statmod__content-2">
+    <div class="statmod__display stat" id="initiative"></div>
+  </div>
+  <h2 class="aiws">Walking Speed</h2>
+  <div class="statmod__content-2">
+    <div class="statmod__display stat" id="walkingSpeed" value=""></div>
+  </div>
+</div>
+  <div>
+  <h2 class="aiws">Traits</h2>
+  <div class="radio-inputs">
+    <ul id="traitsList">
+    </div>
+
+    </ul>
+    </div>
+
+
+
+
+    <form action="noaction" method="get">
+      <h2 class="section-title roll-stats" id="inventory">Inventory</h2>
+      <div class="inventory-list">
+        <label for="weapons">Weapons</label>
+        <input class="input-inventory" type="text" id="weapons" placeholder="Weapons" />
+        <input class="input-inventory" type="text" id="weapons" placeholder="Weapons" />
+        <input class="input-inventory" type="text" id="weapons" placeholder="Weapons" />
+      </div>
+
+      
+        <div class="inventory-list">
+          <label for="weapons">Armor</label>
+          <input class="input-inventory" type="text" id="armor" placeholder="armor" />
+          <input class="input-inventory" type="text" id="armor" placeholder="armor" />
+          <input class="input-inventory" type="text" id="armor" placeholder="armor" />
+        </div>
+
+        
+          <div class="inventory-list">
+            <label for="weapons">Inventory</label>
+            <input class="input-inventory" type="text" id="items" placeholder="Items" />
+            <input class="input-inventory" type="text" id="items" placeholder="Items" />
+            <input class="input-inventory" type="text" id="items" placeholder="Items" />
+            <input class="input-inventory" type="text" id="items" placeholder="Items" />
+            <input class="input-inventory" type="text" id="items" placeholder="Items" />
+            <input class="input-inventory" type="text" id="items" placeholder="Items" />
+            <input class="input-inventory" type="text" id="items" placeholder="Items" />
+            <input class="input-inventory" type="text" id="items" placeholder="Items" />
+          </div>
+    </form>
+  </div> 
+</body>
+</html>

@@ -1,0 +1,296 @@
+/* General */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "DM Serif Display", serif;
+  background-color: #333;
+}
+
+.container {
+  max-width: 65%;
+  margin: 0 auto;
+  padding: 0 20px;
+  background-color: rgb(255, 255, 255);
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.title {
+  font-size: 3rem;
+  color: #333;
+}
+
+/* Stats */
+.stats-b {
+  display: flex;
+
+  justify-content: center;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 30px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.aiws {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin: 20px 0 10px 0;
+}
+
+.statmod__content {
+  display: flex;
+  row-gap: 15px;
+  margin-top: 10px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.statmod__content-2 {
+  display: flex;
+  justify-content: center;
+}
+
+.statmod__display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid #333;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0 10px;
+}
+
+p {
+  font-size: 1.35rem;
+  display: flex;
+  font-weight: bold;
+  color: rgb(209, 74, 74);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 70px;
+  height: 70px;
+  font-style: italic;
+  margin-right: 60px;
+  margin-bottom: 10px;
+}
+
+/* Traits */
+.radio-inputs {
+  margin: 20px;
+  margin-right: 75px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+#traitsList {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
+
+#traitsList li {
+  margin-right: 10px;
+}
+
+#traitsList li label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 2px solid #333;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#traitsList li label:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Character Input */
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin: 20px 0 10px 0;
+}
+
+.name {
+  margin-bottom: 20px;
+}
+
+.input-name {
+  width: 50%;
+  padding: 10px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: 2px solid #333;
+}
+
+/* Race */
+.races {
+  margin-top: 35px;
+  margin-bottom: 30px;
+}
+
+.radio-input {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.radio-input:last-child {
+  margin-right: 0;
+}
+
+.radio-input input[type="radio"] {
+  display: none;
+}
+
+.radio-input label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: rgb(209, 74, 74);
+  margin-left: 10px;
+  cursor: pointer;
+  position: absolute;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.radio-input label::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-top: 2px solid #262626;
+  border-bottom: 2px solid #262626;
+  background-color: #333;
+  transform: scaleY(2);
+  opacity: 0;
+  transition: 0.3s;
+  z-index: -1;
+}
+.radio-input label::after {
+  background-color: #333;
+}
+
+.radio-input label:hover {
+  color: #fff;
+}
+
+.radio-input label:hover::before {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+/* Class */
+.select-menu {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: 2px solid #333;
+  margin-bottom: 18px;
+  color: #333;
+}
+
+.stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.statmod__heading {
+  display: flex;
+  align-self: center;
+  font-size: large;
+  font-weight: bold;
+}
+.statmod {
+  display: flex;
+}
+
+#elf {
+  margin-left: 45px;
+}
+
+select:hover {
+  color: rgb(209, 74, 74);
+}
+select {
+  color: #333;
+}
+
+.roll-button {
+  background-color: #333;
+  border-radius: 4px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Farfetch Basis", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0;
+  max-width: none;
+  min-height: 24px;
+  min-width: 10px;
+  outline: none;
+  overflow: hidden;
+  padding: 7px 20px 6px;
+  position: relative;
+  text-align: center;
+  align-self: center;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 80%;
+}
+
+.roll-button:hover,
+.roll-button:focus {
+  opacity: 0.75;
+  background-color: rgb(209, 74, 74);
+}
+
+.sel-sel-black-panther {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin: 20px 0 10px 0;
+}
+
+#charismaMod,
+#strengthMod,
+#dexterityMod,
+#constitutionMod,
+#wisdomMod,
+#intelligenceMod {
+  font-size: 1.3rem;
+  width: 60px;
+  height: 60px;
+  align-self: center;
+}
