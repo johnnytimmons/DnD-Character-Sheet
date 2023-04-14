@@ -106,6 +106,95 @@ const dndRaces = {
   tiefling: tieflingTraits,
 };
 
+const bloodhunterAbilities = [
+  "Crimson Rite",
+  "Blood Hunter's Sense",
+  "Crimson Rite Spells",
+];
+const barbarianAbilities = [
+  "Rage",
+  "Reckless Attack",
+  "Danger Sense",
+  "Unarmored Defense",
+];
+const bardAbilities = [
+  "Cure Wounds",
+  "Thunderwave",
+  "Bardic Inspiration",
+  "Spellcasting",
+];
+const clericAbilities = [
+  "Bless",
+  "Cure Wounds",
+  "Channel Divinity",
+  "Divine Domain",
+];
+const druidAbilities = ["Entangle", "Goodberry", "Druidic", "Wild Shape"];
+const fighterAbilities = [
+  "Action Surge",
+  "Second Wind",
+  "Fighting Style",
+  "Armor Proficiency",
+];
+const monkAbilities = [
+  "Flurry of Blows",
+  "Patient Defense",
+  "Unarmored Movement",
+  "Martial Arts",
+];
+const paladinAbilities = [
+  "Divine Smite",
+  "Lay on Hands",
+  "Divine Sense",
+  "Divine Health",
+];
+const rangerAbilities = [
+  "Hunter's Mark",
+  "Cure Wounds",
+  "Favored Enemy",
+  "Natural Explorer",
+];
+const rogueAbilities = [
+  "Sneak Attack",
+  "Thieves' Cant",
+  "Expertise",
+  "Cunning Action",
+];
+const sorcererAbilities = [
+  "Chaos Bolt",
+  "Shield",
+  "Sorcery Points",
+  "Font of Magic",
+];
+const warlockAbilities = [
+  "Hex",
+  "Eldritch Blast",
+  "Pact Magic",
+  "Otherworldly Patron",
+];
+const wizardAbilities = [
+  "Mage Armor",
+  "Magic Missile",
+  "Arcane Recovery",
+  "Spellbook",
+];
+
+const spellsAndAbilities = {
+  barbarian: barbarianAbilities,
+  bloodhunter: bloodhunterAbilities,
+  bard: bardAbilities,
+  cleric: clericAbilities,
+  druid: druidAbilities,
+  fighter: fighterAbilities,
+  monk: monkAbilities,
+  paladin: paladinAbilities,
+  ranger: rangerAbilities,
+  rogue: rogueAbilities,
+  sorcerer: sorcererAbilities,
+  warlock: warlockAbilities,
+  wizard: wizardAbilities,
+};
+
 //EVENT_LISTENER_SHIT ---------------------------------
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -168,7 +257,6 @@ document.addEventListener("DOMContentLoaded", function () {
   //radio selecting traits
   //human
   const humanInput = document.getElementById("human");
-
   //dwarf
   const dwarfInput = document.getElementById("dwarf");
   //dragonborn
@@ -185,6 +273,35 @@ document.addEventListener("DOMContentLoaded", function () {
   const halfOrcInput = document.getElementById("half-orc");
   //half-elf
   const halfElfInput = document.getElementById("half-elf");
+
+  //get class spells
+  //radio selecting traits
+  //human
+  const bloodhunterInput = document.getElementById("bloodhunter");
+
+  const barbarianInput = document.getElementById("barbarian");
+
+  const rogueInput = document.getElementById("rogue");
+
+  const bardInput = document.getElementById("bard");
+
+  const clericInput = document.getElementById("cleric");
+
+  const druidInput = document.getElementById("druid");
+
+  const fighterInput = document.getElementById("fighter");
+
+  const monkInput = document.getElementById("monk");
+
+  const paladinInput = document.getElementById("paladin");
+
+  const rangerInput = document.getElementById("ranger");
+
+  const sorcererInput = document.getElementById("sorcerer");
+
+  const warlockInput = document.getElementById("warlock");
+
+  const wizardInput = document.getElementById("wizard");
 
   /* Race Traits stuff
 
@@ -208,6 +325,21 @@ const traits = document.getElementById("traits");
     });
   }
 
+  function characterClickB(classInput, abilities) {
+    classInput.addEventListener("click", function () {
+      const spellTracker = document.getElementById("spellTracker");
+      spellTracker.innerHTML = "";
+      for (let i = 0; i < abilities.length; i++) {
+        // Create a new list item
+        const li = document.createElement("li");
+        // Set the text content of the list item to the current class
+        li.textContent = abilities[i];
+        // Append the list item to the class list
+        spellTracker.appendChild(li);
+      }
+    });
+  }
+
   characterClick(elfInput, elfTraits);
   characterClick(dwarfInput, dwarfTraits);
   characterClick(tieflingInput, tieflingTraits);
@@ -217,26 +349,140 @@ const traits = document.getElementById("traits");
   characterClick(dragonbornInput, dragonbornTraits);
   characterClick(humanInput, humanTraits);
   characterClick(gnomeInput, gnomeTraits);
+
+  characterClickB(bardInput, bardAbilities);
+  characterClickB(clericInput, clericAbilities);
+  characterClickB(druidInput, druidAbilities);
+  characterClickB(fighterInput, fighterAbilities);
+  characterClickB(monkInput, monkAbilities);
+  characterClickB(paladinInput, paladinAbilities);
+  characterClickB(sorcererInput, sorcererAbilities);
+  characterClickB(warlockInput, warlockAbilities);
+  characterClickB(wizardInput, wizardAbilities);
+  characterClickB(rangerInput, rangerAbilities);
+  characterClickB(bloodhunterInput, bloodhunterAbilities);
+  characterClickB(rogueInput, rogueAbilities);
+  characterClickB(barbarianInput, barbarianAbilities);
 });
 
 /*
 
-const characterClass = [
-  {
-    name: "Human",
-    traits: [
-      "lkjlkj",
-      "jlkjlk,"
-    ],
-    id: "human",
-  },
-  {
-    name: "Elf"
-  },
-]
 
-  for (let i = 0; i < characterClass.length; i++) {
-    const input = document.getElementById(characterClass[i].id)
-    characterClick(input, characterClass[i].traits)
-  }
- */
+//EVENT_LISTENER_SHIT ---------------------------------
+
+document.addEventListener("DOMContentLoaded", function () {
+  const strengthBtn = document.getElementById("strengthBtn");
+  const strength = document.getElementById("strength");
+  strengthBtn.addEventListener("click", function () {
+    const total = rollDice();
+    strength.innerText = total;
+    strengthMod.innerText = Math.floor((total - 10) / 2);
+  });
+
+  const dexterityBtn = document.getElementById("dexterityBtn");
+  const dexterity = document.getElementById("dexterity");
+  dexterityBtn.addEventListener("click", function () {
+    const total = rollDice();
+    dexterity.innerText = total;
+    initiative.innerText = Math.floor(positiveClamp(total - 10) / 2);
+    armorClass.innerText = Math.max(
+      Math.floor(positiveClamp(total - 10) / 2) + 10,
+      10
+    );
+    walkingSpeed.innerText =
+      Math.floor(positiveClamp(total - 10) * 5) + 30 + " ft.";
+    dexterityMod.innerText = Math.floor((total - 10) / 2);
+  });
+
+  const constitutionBtn = document.getElementById("constitutionBtn");
+  const constitution = document.getElementById("constitution");
+  constitutionBtn.addEventListener("click", function () {
+    const total = rollDice();
+    constitution.innerText = total;
+    constitutionMod.innerText = Math.floor((total - 10) / 2);
+  });
+
+  const intelligenceBtn = document.getElementById("intelligenceBtn");
+  const intelligence = document.getElementById("intelligence");
+  intelligenceBtn.addEventListener("click", function () {
+    const total = rollDice();
+    intelligence.innerText = total;
+    intelligenceMod.innerText = Math.floor((total - 10) / 2);
+  });
+
+  const wisdomBtn = document.getElementById("wisdomBtn");
+  const wisdom = document.getElementById("wisdom");
+  const wisdomMod = document.getElementById("wisdomMod");
+  wisdomBtn.addEventListener("click", function () {
+    const total = rollDice();
+    wisdom.innerText = total;
+    wisdomMod.innerText = Math.floor((total - 10) / 2);
+  });
+
+  const charismaBtn = document.getElementById("charismaBtn");
+  const charisma = document.getElementById("charisma");
+  charismaBtn.addEventListener("click", function () {
+    const total = rollDice();
+    charisma.innerText = total;
+    charismaMod.innerText = Math.floor((total - 10) / 2);
+  });
+
+  //radio selecting traits
+  //human
+  const humanInput = document.getElementById("human");
+  //dwarf
+  const dwarfInput = document.getElementById("dwarf");
+  //dragonborn
+  const dragonbornInput = document.getElementById("dragonborn");
+  //elf
+  const elfInput = document.getElementById("elf");
+  //halfling
+  const halflingInput = document.getElementById("halfling");
+  //gnome
+  const gnomeInput = document.getElementById("gnome");
+  //tiefling
+  const tieflingInput = document.getElementById("tiefling");
+  //half-orc
+  const halfOrcInput = document.getElementById("half-orc");
+  //half-elf
+  const halfElfInput = document.getElementById("half-elf");
+
+  
+
+  /* Race Traits stuff
+
+const raceInput = document.getElementById("race");
+const traits = document.getElementById("traits");
+
+  //Click radio button to populate traits-------------------------------------------------------
+
+  function characterClick(raceInput, traits) {
+    raceInput.addEventListener("click", function () {
+      const traitsList = document.getElementById("traitsList");
+      traitsList.innerHTML = "";
+      for (let i = 0; i < traits.length; i++) {
+        // Create a new list item
+        const li = document.createElement("li");
+        // Set the text content of the list item to the current trait
+        li.textContent = traits[i];
+        // Append the list item to the traits list
+        traitsList.appendChild(li);
+      }
+    });
+
+    function characterClick(classInput, classAbilities) {
+      classInput.addEventListener("click", function () {
+        const spellTracker = document.getElementById("spellTracker");
+        spellTracker.innerHTML = "";
+        for (let i = 0; i < classInput.length; i++) {
+          // Create a new list item
+          const li = document.createElement("li");
+          // Set the text content of the list item to the current spell
+          li.textContent = classAbilities[i];
+          // Append the list item to the spell list
+          spellTracker.appendChild(li);
+        }
+      });
+    }
+
+*/

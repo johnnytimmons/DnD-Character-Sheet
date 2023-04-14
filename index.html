@@ -40,20 +40,20 @@
         <h2 class="sel-sel-black-panther" for="class">Class</h2>
         <form action="noaction" method="get"></form>
         <select class="select-menu" id="class" name="class">
-          <option value="blood-hunter">Blood Hunter</option>
-          <option value="barbarian">Barbarian</option>
-          <option value="bard">Bard</option>
-          <option value="cleric">Cleric</option>
-          <option value="druid">Druid</option>
-          <option value="fighter">Fighter</option>
-          <option value="monk">Monk</option>
-          <option value="paladin">Paladin</option>
-          <option value="ranger">Ranger</option>
-          <option value="rogue">Rogue</option>
-          <option value="sorcerer">Sorcerer</option>
-          <option value="warlock">Warlock</option>
-          <option value="wizard">Wizard</option>
-          <option value="swish">Swish</option>
+          <option id="bloodhunter" value="blood-hunter">Blood Hunter</option>
+          <option id="barbarian" value="barbarian">Barbarian</option>
+          <option id="bard" value="bard">Bard</option>
+          <option id="cleric" value="cleric">Cleric</option>
+          <option id="druid" value="druid">Druid</option>
+          <option id="fighter" value="fighter">Fighter</option>
+          <option id="monk" value="monk">Monk</option>
+          <option id="paladin" value="paladin">Paladin</option>
+          <option id="ranger" value="ranger">Ranger</option>
+          <option id="rogue" value="rogue">Rogue</option>
+          <option id="sorceror" value="sorcerer">Sorcerer</option>
+          <option id="warlock" value="warlock">Warlock</option>
+          <option id="wizard" value="wizard">Wizard</option>
+      
         </form>
         </select>
         
@@ -114,8 +114,8 @@
 
         <div class="statmod">
           <div class="statmod__content">
-<p>Attribute</p>
-<p>Modifier</p>
+<p class="attMod">Attribute</p>
+<p class="attMod">Modifier</p>
 
           </div>
           <div class="statmod__content">
@@ -194,38 +194,36 @@
     <div class="statmod__display stat" id="walkingSpeed" value=""></div>
   </div>
 </div>
-  <div class="stats-b">
+  <div class="traitsList">
+    <div class="h2Traits">
   <h2 class="aiws">Traits</h2>
+  <p class="pTraits">Choose Race for Racial Traits</p>
+</div>
   <div id="traits">
     <ul id="traitsList">
     </div>
-
-    </ul>
     </div>
 
 
-
-
-    <form class="inventoryList" action="noaction" method="get">
+    <div class="invSpell" action="noaction" method="get">
+        <div class="inventoryList" action="noaction" method="get">
       <h2 class="section-title roll-stats" id="inventory">Inventory</h2>
       <label for="weapons">Weapons</label>
       <div class="inventory-list">
-                <input class="input-inventory" type="text" id="weapons" placeholder="Weapons" />
+        <input class="input-inventory" type="text" id="weapons" placeholder="Weapons" />
         <input class="input-inventory" type="text" id="weapons" placeholder="Weapons" />
         <input class="input-inventory" type="text" id="weapons" placeholder="Weapons" />
       </div>
 
-      <label for="weapons">Armor</label>
+      <label for="armor">Armor</label>
         <div class="inventory-list">
-                    <input class="input-inventory" type="text" id="armor" placeholder="Armor" />
+          <input class="input-inventory" type="text" id="armor" placeholder="Armor" />
           <input class="input-inventory" type="text" id="armor" placeholder="armor" />
           <input class="input-inventory" type="text" id="armor" placeholder="armor" />
         </div>
-
-        
-          
-          <label for="weapons">Inventory</label>
-            <div class="inventory-list"></div>
+ 
+        <label for="inventory">Inventory</label>
+          <div class="inventory-list">
             <input class="input-inventory" type="text" id="items" placeholder="Items" />
             <input class="input-inventory" type="text" id="items" placeholder="Items" />
             <input class="input-inventory" type="text" id="items" placeholder="Items" />
@@ -235,7 +233,19 @@
             <input class="input-inventory" type="text" id="items" placeholder="Items" />
             <input class="input-inventory" type="text" id="items" placeholder="Items" />
           </div>
-    </form>
+        </div>
+
+          <div class="spell-tracker">
+            <div class="traitsList">
+              <div class="h2Traits">         
+            <h2 class="aiws">Spell Tracker</h2>
+            <p class="pTraits">Choose Race for Racial Traits</p>
+          </div>
+              <ul id="spellTracker">
+                      </div>
+                    </div>
+       
+        
   </div> 
 </body>
 </div>
