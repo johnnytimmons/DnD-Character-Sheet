@@ -20,6 +20,39 @@ function positiveClamp(number) {
   }
 }
 
+function getAbilities(classInput) {
+  switch (classInput.toLowerCase()) {
+    case "bloodhunter":
+      return bloodhunterAbilities;
+    case "barbarian":
+      return barbarianAbilities;
+    case "bard":
+      return bardAbilities;
+    case "cleric":
+      return clericAbilities;
+    case "druid":
+      return druidAbilities;
+    case "fighter":
+      return fighterAbilities;
+    case "monk":
+      return monkAbilities;
+    case "paladin":
+      return paladinAbilities;
+    case "ranger":
+      return rangerAbilities;
+    case "rogue":
+      return rogueAbilities;
+    case "sorcerer":
+      return sorcererAbilities;
+    case "warlock":
+      return warlockAbilities;
+    case "wizard":
+      return wizardAbilities;
+    default:
+      return null;
+  }
+}
+
 const humanTraits = [
   "Ability Score Increase: +1 to all ability scores",
   "Languages: Common",
@@ -303,6 +336,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const wizardInput = document.getElementById("wizard");
 
+  const dropdown = document.getElementById("class");
+
+  const spellTracker = document.getElementById("spellTracker");
+  const myText = document.getElementById("myText");
+
   /* Race Traits stuff
 
 const raceInput = document.getElementById("race");
@@ -324,21 +362,20 @@ const traits = document.getElementById("traits");
       }
     });
   }
-
-  function characterClickB(classInput, abilities) {
-    classInput.addEventListener("click", function () {
-      const spellTracker = document.getElementById("spellTracker");
-      spellTracker.innerHTML = "";
-      for (let i = 0; i < abilities.length; i++) {
-        // Create a new list item
-        const li = document.createElement("li");
-        // Set the text content of the list item to the current class
-        li.textContent = abilities[i];
-        // Append the list item to the class list
-        spellTracker.appendChild(li);
-      }
-    });
-  }
+  dropdown.addEventListener("change", function () {
+    const classInput = this.value;
+    const abilities = getAbilities(classInput);
+    const spellTracker = document.getElementById("spellTracker");
+    spellTracker.innerHTML = "";
+    for (let i = 0; i < abilities.length; i++) {
+      // Create a new list item
+      const li = document.createElement("li");
+      // Set the text content of the list item to the current trait
+      li.textContent = abilities[i];
+      // Append the list item to the traits list
+      spellTracker.appendChild(li);
+    }
+  });
 
   characterClick(elfInput, elfTraits);
   characterClick(dwarfInput, dwarfTraits);
@@ -349,20 +386,6 @@ const traits = document.getElementById("traits");
   characterClick(dragonbornInput, dragonbornTraits);
   characterClick(humanInput, humanTraits);
   characterClick(gnomeInput, gnomeTraits);
-
-  characterClickB(bardInput, bardAbilities);
-  characterClickB(clericInput, clericAbilities);
-  characterClickB(druidInput, druidAbilities);
-  characterClickB(fighterInput, fighterAbilities);
-  characterClickB(monkInput, monkAbilities);
-  characterClickB(paladinInput, paladinAbilities);
-  characterClickB(sorcererInput, sorcererAbilities);
-  characterClickB(warlockInput, warlockAbilities);
-  characterClickB(wizardInput, wizardAbilities);
-  characterClickB(rangerInput, rangerAbilities);
-  characterClickB(bloodhunterInput, bloodhunterAbilities);
-  characterClickB(rogueInput, rogueAbilities);
-  characterClickB(barbarianInput, barbarianAbilities);
 });
 
 /*

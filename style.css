@@ -413,3 +413,7 @@ li {
   margin-right: 20px;
   margin-left: 20px;
 }
+
+#walkingSpeed {
+  font-size: 1.57rem;
+}
