@@ -4,13 +4,18 @@ body {
   padding: 0;
   font-family: "DM Serif Display", serif;
   background-color: #333;
+  min-height: 100vh;
 }
 
 .container {
-  max-width: 55%;
-  max-height: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
   margin: 0 auto;
-  padding: 0 50px;
+  padding: 50px;
   background-color: rgb(255, 255, 255);
 }
 
@@ -18,10 +23,11 @@ body {
 header {
   text-align: center;
   padding-top: 30px;
+  font-family: "DM Serif Display", serif;
 }
 
 .title {
-  font-size: 3rem;
+  font-size: 3.5rem;
   color: #333;
 }
 
@@ -39,21 +45,27 @@ header {
   margin-right: 20px;
   margin-left: 20px;
 }
+
 .traitsList {
   display: flex;
-  flex-direction: row;
-  justify-content: left;
-  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 20px;
-  padding: 20px;
-  margin: 0 auto;
-  margin-bottom: 30px;
-  margin-top: 30px;
-  margin-right: 20px;
-  margin-left: 20px;
+  padding: 5%;
+  width: 55%;
+
   border: 2px solid black;
 }
-
+#traitsList li {
+  align-self: flex-start;
+}
+.traits {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .aiws {
   font-size: 2rem;
   font-weight: bold;
@@ -110,47 +122,30 @@ header {
 /* Traits */
 .radio-inputs {
   margin: 20px;
-  margin-right: 75px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: row;
   margin-bottom: 40px;
+  gap: 2vw;
 }
-
-#traitsList {
-  list-style-type: none;
+.h2Traits {
   display: flex;
-  flex-wrap: wrap;
-  margin: 20px;
-  padding: 0;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: left;
+  justify-content: center;
+  align-items: center;
 }
-
-#traitsList li {
-  margin-right: 10px;
-}
-
-#traitsList li label {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #333;
-  padding: 10px 20px;
-  border-radius: 5px;
-  border: 2px solid #333;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-#traitsList li label:hover {
-  background-color: #333;
-  color: #fff;
+#traitsList {
+  display: flex;
+  flex-direction: column;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  padding-inline-start: 0;
+  text-align: left;
+  gap: 1em;
 }
 
 /* Character Input */
 .section-title {
-  font-size: 2rem;
+  font-size: 2.5em;
   font-weight: bold;
   color: #333;
   margin: 20px 0 10px 0;
@@ -160,32 +155,49 @@ header {
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
+  min-width: 60%;
+  max-width: 90vw;
 }
 
 .input-name {
   width: 100%;
-  padding: 10px;
+  padding: 20px;
   font-size: 1.2rem;
   border-radius: 5px;
   border: 2px solid #333;
+  margin-bottom: 18px;
+  color: #333;
+  cursor: pointer;
+}
+
+.select-menu {
+  width: 100%;
+  padding: 20px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: 2px solid #333;
+  margin-bottom: 18px;
+  color: #333;
+  cursor: pointer;
 }
 
 /* Race */
 .races {
-  margin-top: 1px;
-  margin-bottom: 30px;
+  margin-bottom: 1vh;
+}
+
+.raceDiv {
+  display: flex;
+  flex-direction: column;
 }
 
 .radio-input {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-right: 20px;
 }
 
 .radio-input:last-child {
-  margin-right: 0;
 }
 
 .radio-input input[type="radio"] {
@@ -196,16 +208,16 @@ header {
   font-size: 1.2rem;
   font-weight: bold;
   color: rgb(209, 74, 74);
-  margin-left: 10px;
+  background-color: none;
+  border-radius: 0.2em;
+  padding: 3px;
   cursor: pointer;
-  position: absolute;
   z-index: 1;
   transition: color 0.3s ease;
 }
 
 .radio-input label::before {
   content: "";
-  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -224,6 +236,9 @@ header {
 
 .radio-input label:hover {
   color: #fff;
+  background-color: #333;
+  border-radius: 0.2em;
+  padding: 3px;
 }
 
 .radio-input label:hover::before {
@@ -232,16 +247,6 @@ header {
 }
 
 /* Class */
-.select-menu {
-  width: 200px;
-  padding: 10px;
-  font-size: 1.2rem;
-  border-radius: 5px;
-  border: 2px solid #333;
-  margin-bottom: 18px;
-  color: #333;
-  cursor: pointer;
-}
 
 .stats {
   display: flex;
@@ -255,12 +260,21 @@ header {
   font-size: large;
   font-weight: bold;
 }
+.statRows {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 .statmod {
   display: flex;
 }
-
-#elf {
-  margin-left: 45px;
+.leftVert {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 3vw;
+  padding-bottom: 20%;
 }
 
 select:hover {
@@ -268,6 +282,33 @@ select:hover {
 }
 select {
   color: #333;
+}
+
+#submitBtn {
+  border: 4px solid #333;
+  border-radius: 4px;
+  background: rgb(209, 74, 74);
+}
+.submitText {
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Farfetch Basis", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #fff;
+}
+#submitButton {
+  width: 100%;
+  margin-top: 1em;
+  height: 50px;
+  background: rgb(209, 74, 74);
+  border-radius: 5px;
+  transition: all 0.3s cubic-bezier(0.67, 0.17, 0.4, 0.83);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .roll-button {
@@ -299,10 +340,13 @@ select {
   width: 80%;
 }
 
+ul {
+  margin-block-end: 0;
+}
 .roll-button:hover,
 .roll-button:focus {
-  opacity: 0.75;
-  background-color: rgb(209, 74, 74);
+  opacity: 0.75 !important;
+  background-color: rgb(209, 74, 74) !important;
 }
 
 .sel-sel-black-panther {
@@ -326,14 +370,11 @@ select {
 
 .details {
   display: flex;
+  position: relative;
   flex-direction: row;
-  justify-content: space-evenly;
-  gap: 0%;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20%;
   max-width: 100%;
 }
 
@@ -416,4 +457,12 @@ li {
 
 #walkingSpeed {
   font-size: 1.57rem;
+}
+
+.descriptions {
+  font-size: 1.25rem;
+  background-color: #fff;
+
+  padding: 10px;
+  margin-top: 10px;
 }

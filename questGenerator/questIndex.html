@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script src="questindex.js"></script>
+  <link rel="stylesheet" href="questStyle.css" />
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&family=Oswald&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encounter Generator</title>
+  </head>
+
+  <body>
+    <h1>Encounter Generator</h1>
+    <form id="questForm">
+      <label for="questTitle">Quest Title:</label>
+      <input type="text" id="questTitle" required />
+
+      <label for="numberPlayers">Number of Players:</label>
+      <textarea id="numberOfPlayers" required></textarea>
+
+      <label for="questObjectives">Quest Objectives:</label>
+      <textarea id="questObjectives" required></textarea>
+
+      <label for="questChoices">Quest Choices:</label>
+      <textarea id="questChoices" required></textarea>
+
+      <label for="questRewards">Quest Rewards:</label>
+      <textarea id="questRewards" required></textarea>
+
+      <label for="questConsequences">Quest Consequences:</label>
+      <textarea id="questConsequences" required></textarea>
+
+      <label for="partyLevel">Party Level:</label>
+      <select id="partyLevel" required>
+        <option value="1">Level 1</option>
+        <option value="2">Level 2</option>
+        <!-- Add more level options here -->
+      </select>
+
+      <label for="terrain">Terrain:</label>
+      <select id="terrain" required>
+        <option value="forest">Forest</option>
+        <option value="mountain">Mountain</option>
+        <!-- Add more terrain options here -->
+      </select>
+
+      <button type="submit">Save Quest</button>
+    </form>
+  </body>
+</html>
